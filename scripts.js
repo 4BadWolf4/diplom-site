@@ -7,48 +7,53 @@ window.addEventListener('load', function () {
     document.body.classList.add('page-loaded');
 });
 
-// Плавный уход страницы при переходе по ссылкам на другие страницы
+// Основная инициализация
 document.addEventListener('DOMContentLoaded', () => {
+    // Плавный уход страницы при переходе по ссылкам на другие страницы
     document.querySelectorAll('a').forEach(link => {
         const url = link.getAttribute('href');
-        if (url && !url.startsWith('#') && !url.startsWith('tel:') && !url.startsWith('mailto:')) {
+        if (
+            url &&
+            !url.startsWith('#') &&
+            !url.startsWith('tel:') &&
+            !url.startsWith('mailto:')
+        ) {
             link.addEventListener('click', function (e) {
                 e.preventDefault();
                 document.body.classList.add('fade-out');
                 setTimeout(() => {
                     window.location.href = url;
-                }, 800); // синхронизировано с transition в CSS
+                }, 800); // должно совпадать с transition в CSS
             });
         }
     });
 
-    // Логика для index.html (форма заказа)
+    // ===== ЛОГИКА INDEX.HTML =====
     const orderForm = document.getElementById('orderForm');
     if (orderForm) {
-        orderForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Заявка отправлена! Мы свяжемся с вами в ближайшее время.');
-            e.target.reset();
+        // ВАЖНО: НЕ вызываем preventDefault, чтобы форма реально ушла на FormSubmit
+        orderForm.addEventListener('submit', function () {
+            // Можно показать краткое сообщение до перехода на страницу FormSubmit
+            // alert('Отправляем заявку...');
         });
     }
 
-    // Логика личного кабинета (cabinet.html)
+    // ===== ЛОГИКА CABINET.HTML =====
     const registerForm = document.getElementById('registerForm');
     const loginForm = document.getElementById('loginForm');
     const profileSection = document.getElementById('profileSection');
     const authSection = document.getElementById('authSection');
     const logoutBtn = document.getElementById('logoutBtn');
 
-    // Если есть элементы кабинета — включаем соответствующую логику
     if (registerForm && loginForm && profileSection && authSection && logoutBtn) {
-        // Проверка, залогинен ли пользователь
+        // Проверка — есть ли уже сохранённый пользователь
         const existingUser = JSON.parse(localStorage.getItem(STORAGE_KEY_USER));
         if (existingUser) {
             showProfile(existingUser);
         }
 
         // Регистрация
-        registerForm.addEventListener('submit', function(e) {
+        registerForm.addEventListener('submit', function (e) {
             e.preventDefault();
             const form = e.target;
             const user = {
@@ -68,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Вход
-        loginForm.addEventListener('submit', function(e) {
+        loginForm.addEventListener('submit', function (e) {
             e.preventDefault();
             const form = e.target;
             const email = form.email.value.trim();
@@ -84,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Выход
-        logoutBtn.addEventListener('click', function() {
+        logoutBtn.addEventListener('click', function () {
             localStorage.removeItem(STORAGE_KEY_USER);
             location.reload();
         });
