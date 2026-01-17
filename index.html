@@ -83,18 +83,36 @@
 
     <section id="order">
         <h2>Оформите заказ</h2>
-        <form id="orderForm">
-            <input type="text" name="name" placeholder="Ваше имя" required>
-            <input type="tel" name="phone" placeholder="Телефон" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <select name="workType" required>
+
+        <!-- ВАЖНО: action — на FormSubmit, method="POST" -->
+        <form id="orderForm"
+              action="https://formsubmit.co/littlewolfie9@yandex.ru"
+              method="POST">
+            <!-- Имя клиента -->
+            <input type="text" name="client_name" placeholder="Ваше имя" required>
+            <!-- Телефон -->
+            <input type="tel" name="client_phone" placeholder="Телефон" required>
+            <!-- Email клиента -->
+            <input type="email" name="client_email" placeholder="Email" required>
+            <!-- Тип работы -->
+            <select name="work_type" required>
                 <option value="">Выберите тип работы</option>
                 <option value="diploma">Дипломная работа</option>
                 <option value="course">Курсовая работа</option>
                 <option value="project">Проектная работа</option>
                 <option value="edit">Доработка</option>
             </select>
-            <textarea name="description" placeholder="Описание заказа (тема, объем, сроки, требования ВУЗа)" rows="5" required></textarea>
+            <!-- Описание заказа -->
+            <textarea name="order_description"
+                      placeholder="Описание заказа (тема, объем, сроки, требования ВУЗа)"
+                      rows="5" required></textarea>
+
+            <!-- Служебные поля FormSubmit -->
+            <!-- Страница, на которую вернуть клиента после отправки -->
+            <input type="hidden" name="_redirect" value="https://your-domain-or-github-pages-url/">
+            <!-- Отключить спам-защиту CAPTCHA (по желанию) -->
+            <input type="hidden" name="_captcha" value="false">
+
             <button type="submit" class="cta" style="width: 100%;">Отправить заявку</button>
         </form>
     </section>
