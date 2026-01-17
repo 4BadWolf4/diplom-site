@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет клиента</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Главная</a></li>
+                <li><a href="index.html#services">Услуги</a></li>
+                <li><a href="index.html#prices">Цены</a></li>
+                <li><a href="index.html#order">Заказать</a></li>
+                <li><a href="cabinet.html">Личный кабинет</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" style="padding-top:150px; padding-bottom:50px;">
+        <h1>Личный кабинет клиента</h1>
+        <p>Зарегистрируйтесь или войдите, чтобы видеть свои данные и заказы.</p>
+    </section>
+
+    <!-- Блок форм регистрации и входа -->
+    <section class="services" id="authSection" style="padding-top:30px;">
+        <h2>Вход / Регистрация</h2>
+
+        <div class="service-grid">
+            <!-- Регистрация -->
+            <div class="service-card">
+                <h3>Регистрация</h3>
+                <form id="registerForm">
+                    <input type="text" name="name" placeholder="Ваше имя" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Пароль" required>
+                    <button type="submit" class="cta" style="width:100%;">Зарегистрироваться</button>
+                </form>
+            </div>
+
+            <!-- Вход -->
+            <div class="service-card">
+                <h3>Вход</h3>
+                <form id="loginForm">
+                    <input type="email" name="email" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Пароль" required>
+                    <button type="submit" class="cta" style="width:100%;">Войти</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок профиля, отображается после входа -->
+    <section class="prices" id="profileSection" style="display:none;">
+        <h2 style="text-align:center; margin-bottom:20px;">Ваш профиль</h2>
+        <div style="max-width:800px; margin:0 auto; background:#fff; padding:20px; border-radius:8px; box-shadow:0 2px 10px rgba(0,0,0,0.1);">
+            <p><strong>Имя:</strong> <span id="profileName"></span></p>
+            <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+
+            <hr style="margin:20px 0;">
+
+            <h3>Ваши заказы</h3>
+            <ul id="ordersList">
+                <li>Пока нет заказов. Оформите заказ на главной странице.</li>
+            </ul>
+
+            <button id="logoutBtn" class="cta" style="margin-top:20px;">Выйти</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 АкадемСервис. Все права защищены.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

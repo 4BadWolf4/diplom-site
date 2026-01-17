@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АкадемСервис - Дипломные, курсовые и проектные работы на заказ</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#prices">Цены</a></li>
+                <li><a href="#order">Заказать</a></li>
+                <li><a href="cabinet.html">Личный кабинет</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Готовые дипломные, курсовые и проектные работы</h1>
+        <p>Индивидуальный подход, 100% уникальность, сроки от 1 дня. Закажите сейчас и получите скидку 20%!</p>
+        <button class="cta" onclick="document.getElementById('order').scrollIntoView()">Заказать работу</button>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Наши услуги</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>Дипломные работы</h3>
+                <p>Полные дипломные проекты с расчетами, чертежами и подготовкой к защите. Любые специальности.</p>
+            </div>
+            <div class="service-card">
+                <h3>Курсовые работы</h3>
+                <p>Качественные курсовые на 4–5 баллов: от теории до практической части.</p>
+            </div>
+            <div class="service-card">
+                <h3>Проектные работы</h3>
+                <p>Технические проекты, чертежи в AutoCAD, 3D‑модели и пояснительные записки.</p>
+            </div>
+            <div class="service-card">
+                <h3>Доработка и корректировка</h3>
+                <p>Исправим вашу работу под требования ВУЗа, ГОСТ и замечания научного руководителя.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="prices" class="prices">
+        <h2 style="text-align: center; margin-bottom: 30px;">Цены на услуги</h2>
+        <table class="price-table">
+            <thead>
+                <tr>
+                    <th>Тип работы</th>
+                    <th>Объем (стр)</th>
+                    <th>Срок (дни)</th>
+                    <th>Цена (руб)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Курсовая</td>
+                    <td>20–30</td>
+                    <td>1–3</td>
+                    <td>от 2000</td>
+                </tr>
+                <tr>
+                    <td>Диплом</td>
+                    <td>50–80</td>
+                    <td>3–7</td>
+                    <td>от 8000</td>
+                </tr>
+                <tr>
+                    <td>Проект</td>
+                    <td>Переменный</td>
+                    <td>2–5</td>
+                    <td>от 5000</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="order">
+        <h2>Оформите заказ</h2>
+        <form id="orderForm">
+            <input type="text" name="name" placeholder="Ваше имя" required>
+            <input type="tel" name="phone" placeholder="Телефон" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <select name="workType" required>
+                <option value="">Выберите тип работы</option>
+                <option value="diploma">Дипломная работа</option>
+                <option value="course">Курсовая работа</option>
+                <option value="project">Проектная работа</option>
+                <option value="edit">Доработка</option>
+            </select>
+            <textarea name="description" placeholder="Описание заказа (тема, объем, сроки, требования ВУЗа)" rows="5" required></textarea>
+            <button type="submit" class="cta" style="width: 100%;">Отправить заявку</button>
+        </form>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; 2026 АкадемСервис. Все права защищены. Тел: +7 (XXX) XXX‑XX‑XX | Email: info@akademservis.ru</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
